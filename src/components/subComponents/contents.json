@@ -1,15 +1,26 @@
     { 
         "Technical Skills":{
             "Languages":["JavaScript", "TypeScript", "Python", "Scala", "SQL", "HTML5", "CSS"],
-            "Frameworks":["ReactJS", "Apache Spark", "Redux", "Node.js", "Express.js", "gRPC"],
+            "Frameworks":["ReactJS","Lumina", "Stencil", "Vite", "Lit", "Apache Spark", "Redux", "Node.js", "Express.js", "gRPC"],
             "Libraries":["NumPy", "pandas", "matplotlib", "Scikit-learn", "OpenAI gym", "Chart.js", "Fluent UI", "EJS"],
-            "Tools":["REST APIs", "Git", "Webpack", "Storybook JS", "ELK", "Postman", "Google Looker Studio", "npm"],
-            "Cloud Technologies":["OpenAI API", "Azure Health Bot", "Azure Language Studio", "GCP BigQuery"],
+            "Tools":["ArcGIS", "REST APIs", "Git", "Webpack", "Storybook JS", "ELK", "Postman", "Google Looker Studio", "npm"],
+            "Cloud Technologies":["Azure App Registrations","Microsoft Entra ID", "OpenAI API", "Azure Health Bot", "Azure Language Studio", "GCP BigQuery"],
             "Databases":["PostgreSQL", "MongoDB"],
             "OS":["macOS","Windows","Linux"]
         },
         "Soft Skills":{},
         "work_Exp" : [
+            {
+                "role":"Software Development Engineer 2",
+                "company":"at Esri",
+                "desc":[
+                    "Developing the ArcGIS MapViewer within Microsoft Fabric, bringing mapping, visualization, and spatial analysis capabilities into Fabric using Lumina, TypeScript, Calcite and Web Components.",
+                    "Built a Data Browser with Fluent UI to streamline OneLake file exploration and ArcGIS Maps SDK for JavaScript to enable interactive maps and layer management.",
+                    "Utilized Fabric APIs, Workload development toolkit and packages, created and managed Azure App Registrations and API Permissions while collaborating with Fabric product and platform teams.",
+                    "Migrated the app from Stencil to Lumina (Lit based) to unify components under a single framework consistent across teams and built GitHub Actions workflows to automate updates and deployments."
+                ],
+                "time":"Sep 2024 - Present"
+            },
             {
                 "role":"Software Design Engineer Intern",
                 "company":"at Microsoft",

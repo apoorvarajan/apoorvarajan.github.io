@@ -76,7 +76,7 @@ const Home = (props:any) =>{
                 
                             </div>
                             <div className="about-me">
-                                I am a Software Engineer with over 3 years of experience currently based in United States and on the lookout for full-time roles.
+                                I am a Software Engineer at Esri (Environmental Systems Research Institute) with over 4 years of experience currently based in United States.
                             </div>
                         </div>
                         <div className="photo-wrap">
