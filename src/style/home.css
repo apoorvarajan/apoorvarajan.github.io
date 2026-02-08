@@ -151,7 +151,7 @@
 .about-me{
     text-align: inherit;
     line-height: 1.5em;
-    margin: 1em 0em;
+    margin: 2em 0em 1em 0em;
     border-radius: 0.5em;
     font-weight: 900;
     font-family:monospace;
@@ -250,3 +250,36 @@
     padding: 0.5em 2em;
     border-radius: 0.5em;
   } */
+  .resume_download:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+
+  .resume_download {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black;  */
+    /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .resume_download .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(40,154,113,0.5);
+    color: darkblue;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 0.5em;
+    bottom: -3em;
+    left: -4em;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .resume_download:hover .tooltiptext {
+    visibility: visible;
+  }

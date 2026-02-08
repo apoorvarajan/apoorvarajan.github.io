@@ -43,9 +43,9 @@ const Home = (props:any) =>{
             "refFunc":() => setPage(6)
         }]
     const social_icons = [
-        "mailto:apoorvarajan1997@gmail.com",
-        "https://www.linkedin.com/in/apoorva-rajan/",
-        "https://github.com/apoorvarajan"
+        ["mailto:apoorvarajan1997@gmail.com","Email"],
+        ["https://www.linkedin.com/in/apoorva-rajan/","LinkedIn"],
+        ["https://github.com/apoorvarajan","GitHub"]
     ]
     return <div className="home-container">
             <div className="header">
@@ -64,13 +64,16 @@ const Home = (props:any) =>{
                             </div>
                             <div className="contact">
                                 {social_icons.map((item,key)=>{
-                                    return <div>
-                                            <SocialIcon url={item}/>
+                                    return <div className='resume_download'>
+                                            <SocialIcon url={item[0]}/>
+                                            <span className="tooltiptext">{item[1]}</span>
                                         </div>
                                 })}
-                                <div onClick={()=> window.location.href="../documents/Resume_ApoorvaRajan.pdf"}>
+                                <div onClick={()=> window.location.href="../documents/Resume_ApoorvaRajan.pdf"} className='resume_download'>
                                     <img src="./resume_icon.svg" width="50em"/>
+                                    <span className="tooltiptext">Resume</span>
                                 </div>
+                
                             </div>
                             <div className="about-me">
                                 I am a Software Engineer with over 3 years of experience currently based in United States and on the lookout for full-time roles.
