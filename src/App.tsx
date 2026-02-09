@@ -1,10 +1,8 @@
 import React, {useEffect} from 'react';
 import ReactGA from 'react-ga';
-import logo from './logo.svg';
 import './App.css';
 import Home from './components/home'
-import PlayGround from './components/playground/playgroundMain'
-import { Routes, Route, HashRouter } from "react-router-dom";
+import PlayGround from './components/playground/playgroundMain';
 
 function App() {
   useEffect(() => {
@@ -13,13 +11,7 @@ function App() {
     },[]);
   return (
     <div className="App">
-      {/* <HashRouter>
-      <Routes>
-        <Route path="/playground" Component={PlayGround} />
-        <Route path="/" Component={Home} />
-      </Routes>
-      </HashRouter> */}
-      {window.location.hash=="#playground" ? <PlayGround/> : <Home/>}
+      {window.location.hash==="#playground" ? <PlayGround/> : <Home/>}
     </div>
   );
 }
