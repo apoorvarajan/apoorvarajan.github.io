@@ -1,7 +1,4 @@
-import React from 'react'
-
-import {HiBriefcase, HiAcademicCap} from "react-icons/hi"
-import {FaProjectDiagram} from "react-icons/fa"
+import {HiBriefcase} from "react-icons/hi"
 import { MdOpenInNew } from 'react-icons/md';
 
 import contentJSON from './contents.json'
@@ -29,18 +26,6 @@ const Experience = () =>{
                             <div className="exp-list">
                             {value.content.map((item2:any,key2:any)=>{
                                 return <div className="wrap-exp" onClick={()=>{
-                                            // let elem = document.getElementById("desc_"+key+key2)
-                                            // if(item2.role=="Senior Software Engineer"){
-                                            //     elem= document.getElementById("desc_"+key+(key2+1))
-                                            // }
-                                            // if(elem){
-                                            //     if(elem.style.display=='block'){
-                                            //         elem.style.display='none'
-                                            //     }
-                                            //     else{
-                                            //         elem.style.display='block'
-                                            //     }
-                                            // }
                                         }}>
                                         <div>
                                             <div className="exp-icon-wrap">

@@ -28,7 +28,7 @@ const OnlineCourses = () => {
                     <div className="view-button" onClick={()=>{
                         let elem = document.getElementById("course_"+key2)
                         if(elem){
-                            if(elem.style.display=='block'){
+                            if(elem.style.display==='block'){
                                 elem.style.display='none'
                             }
                             else{
@@ -39,7 +39,7 @@ const OnlineCourses = () => {
                         VIEW CERTIFICATE
                     </div>
                     {/* <embed src={item.Certificate} width="800px" height="2100px" /> */}
-                    <img src={item.Certificate} width="500em" id={"course_"+key2} hidden/>
+                    <img alt="crs-pic" src={item.Certificate} width="500em" id={"course_"+key2} hidden/>
                 </div>
             </div>
     })}

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
 
 import emailjs from '@emailjs/browser';
 
@@ -12,7 +12,7 @@ const EmailPopUp = (props:any) =>{
         let from_name=name.current.value
         let email_id=id.current.value
         let msg=body.current.value
-        if(from_name=="" || email_id=="" || msg==""){
+        if(from_name==="" || email_id==="" || msg===""){
             alert("All fields are required")
         }
         else{

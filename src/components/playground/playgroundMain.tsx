@@ -1,7 +1,5 @@
 import React from 'react'
 import './playgroundStyles/playground.css'
-import { Routes, Route, Navigate, Link, NavLink } from "react-router-dom";
-import ted from './playgroundAssets/teddy1.gif'
 import kiss from './playgroundAssets/kiss.gif'
 import propose from './playgroundAssets/propose.gif'
 class PlayGround extends React.Component<any,any> {
@@ -41,16 +39,14 @@ class PlayGround extends React.Component<any,any> {
     render(){ 
         const {noText,yes} = this.state
         return <div className='playground-wrap'>
-                    {/* <div className='valentine-button'> Valentine </div> */}
                     {yes ? <div>
-                        <img src={kiss} height='400em'/>
+                        <img alt="fun-pic" src={kiss} height='400em'/>
                         <div className='yaay-yes'>
                             Yaaaay!!!
                         </div>
                     </div>:
                     <div>
-                        {/* <img src={ted} height='400em'/> */}
-                        <img src={propose} height='400em'/>
+                        <img alt="propose-pic" src={propose} height='400em'/>
                         <div className='val-q'> Will You be my Valentine?? </div>
                         <div className='ans-wrap'>
                             <div id="yes" className='yes-class' onClick={()=>this.yesClick()} style={{height:'5em',width:'5em'}}>

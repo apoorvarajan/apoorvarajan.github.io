@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Skills from './subComponents/skills'
 import Experience from './subComponents/experience'
 import Projects from './subComponents/projects'
@@ -55,7 +55,7 @@ const Home = (props:any) =>{
                     </div>
                 })}
             </div>
-            {page==0?<div className="primary-wrap">
+            {page===0?<div className="primary-wrap">
                 <div className='forborder'>
                     <div className="primary-details">
                         <div className="name-contact">
@@ -70,7 +70,7 @@ const Home = (props:any) =>{
                                         </div>
                                 })}
                                 <div onClick={()=> window.location.href="../documents/Resume_ApoorvaRajan.pdf"} className='resume_download'>
-                                    <img src="./resume_icon.svg" width="50em"/>
+                                    <img alt="resume-icon" src="./resume_icon.svg" width="50em"/>
                                     <span className="tooltiptext">Resume</span>
                                 </div>
                 
@@ -80,17 +80,17 @@ const Home = (props:any) =>{
                             </div>
                         </div>
                         <div className="photo-wrap">
-                            <img className="photo" height="250em" src="./headshot.png"/>
+                            <img alt="headshot" className="photo" height="250em" src="./headshot.png"/>
                         </div>
                     </div>
                 </div>
             </div>:
-            page==1? <Skills/>
-            :page==2? <Experience/>
-            :page==3? <Projects/>
-            :page==4? <Education/>
-            :page==5? <Achievements/>
-            :page==6? <OnlineCourses/>
+            page===1? <Skills/>
+            :page===2? <Experience/>
+            :page===3? <Projects/>
+            :page===4? <Education/>
+            :page===5? <Achievements/>
+            :page===6? <OnlineCourses/>
             :null}
             {email?<EmailPopUp setEmail={setEmail}/>:
             <div className='drop-a-note' onClick={()=>setEmail(true)}> Leave me a message </div>}

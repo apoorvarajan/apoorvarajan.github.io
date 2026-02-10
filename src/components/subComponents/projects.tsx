@@ -1,6 +1,3 @@
-import React from 'react'
-
-import {HiBriefcase, HiAcademicCap} from "react-icons/hi"
 import {FaProjectDiagram} from "react-icons/fa"
 import { MdOpenInNew } from 'react-icons/md';
 

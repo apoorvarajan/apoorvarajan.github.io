@@ -1,8 +1,7 @@
-import React from 'react'
 import contentJSON from './contents.json'
 import '../../style/subComponentStyles/skills.css'
 
-import { VscChevronDown, VscFolderOpened, VscChevronRight, VscChromeClose, VscChevronUp } from "react-icons/vsc"
+import { VscChevronDown, VscFolderOpened, VscChevronRight } from "react-icons/vsc"
 
 const Skills = () =>{
     // ref={myRef5}
@@ -20,7 +19,7 @@ const Skills = () =>{
                                         {key+":"}
                                     </div>
                                     <div className="skill-list">
-                                        {value.map((val,ind)=>{
+                                        {value.map((val)=>{
                                             return <div>
                                                 <VscChevronRight/>&nbsp;
                                                 {val}

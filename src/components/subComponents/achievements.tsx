@@ -30,7 +30,7 @@ const Achievements = () => {
                             <div className="view-button" onClick={()=>{
                                 let elem = document.getElementById("cert_"+key2)
                                 if(elem){
-                                    if(elem.style.display=='block'){
+                                    if(elem.style.display==='block'){
                                         elem.style.display='none'
                                     }
                                     else{
@@ -40,8 +40,7 @@ const Achievements = () => {
                             }}>
                                 VIEW CERTIFICATE
                             </div>
-                            {/* <embed src={item.doc} width="800px" height="2100px" /> */}
-                            <img src={item.doc} width="500em" id={"cert_"+key2} hidden/>
+                            <img alt="cert-pic" src={item.doc} width="500em" id={"cert_"+key2} hidden/>
                         </div>
                     </div>
             })}
