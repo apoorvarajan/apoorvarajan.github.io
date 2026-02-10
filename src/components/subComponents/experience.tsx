@@ -35,7 +35,7 @@ const Experience = () =>{
                                         </div>
                                         <div className="ach-div">
                                             <div className="role">
-                                                {item2.link? <a target="_blank" className="anchor_cd" href={item2.link}>{item2.role}<MdOpenInNew /></a>:item2.role}
+                                                {item2.link? <a target="_blank" rel="noreferrer" className="anchor_cd" href={item2.link}>{item2.role}<MdOpenInNew /></a>:item2.role}
                                                 {item2.time?<span style={{float: 'right',color: 'darkblue',fontWeight: 'normal'}}>{item2.time}</span>:null}
                                             </div>
                                             {item2.company?<div className="company-name">{item2.company}</div>:null}

@@ -35,14 +35,14 @@ const Education = () =>{
                                         </div>
                                         <div className="ach-div">
                                             <div className="role">
-                                                {item2.link? <a target="_blank" className="anchor_cd" href={item2.link}>{item2.role}<MdOpenInNew /></a>:item2.role}
+                                                {item2.link? <a target="_blank" rel="noreferrer" className="anchor_cd" href={item2.link}>{item2.role}<MdOpenInNew /></a>:item2.role}
                                                 {item2.time?<span style={{float: 'right',color: 'darkblue',fontWeight: 'normal'}}>{item2.time}</span>:null}
                                             </div>
                                             {item2.company?<div className="company-name">{item2.company}</div>:null}
                                             <div style={{minHeight:"2em"}}>
                                                 <ul   className="expand-sec" id={"desc_"+key+key2}>
                                                 {/* style={{display:'none'}} */}
-                                                    {item2.desc.map((descitem:any,desckey:any)=>{
+                                                    {item2.desc.map((descitem:any)=>{
                                                         return <li>
                                                                     <div className="role-desc">
                                                                         {descitem}
