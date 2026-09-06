@@ -1,48 +1,28 @@
 import { FaTrophy } from "react-icons/fa";
-
 import contentJSON from './contents.json';
-
+import { ExpandableListItem, ListSection } from '../shared';
 import '../../style/subComponentStyles/experience.css';
 
 const Achievements = () => {
-    return <div className="subsec">
-        <div className="head">
-            {"Achievements"}
-            <div className="line" />
-        </div>
-        <div className="exp-list ach">
-            {contentJSON.Achievements.map((item, key2) => (
-                <div key={`${item.title}-${key2}`}>
-                    <div>
-                        <div className="exp-icon-wrap">
-                            <FaTrophy />
-                        </div>
-                        {key2 < Achievements.length - 1 && <div className="vertical-line"></div>}
-                    </div>
-                    <div className="ach-div">
-                        <div className="role">
-                            {item.title}
-                            <span style={{ float: 'right', color: 'black', fontWeight: 'normal' }}>{item.time}</span>
-                        </div>
-                        <div className="view-button" onClick={() => {
-                            const elem = document.getElementById("cert_" + key2);
-                            if (elem) {
-                                if (elem.style.display === 'block') {
-                                    elem.style.display = 'none';
-                                }
-                                else {
-                                    elem.style.display = 'block';
-                                }
-                            }
-                        }}>
-                            VIEW CERTIFICATE
-                        </div>
-                        <img alt="cert-pic" src={item.doc} width="500em" id={"cert_" + key2} hidden />
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div>
+    const achievements = contentJSON.Achievements;
+    const icon = <FaTrophy />;
+
+    return (
+        <ListSection title="Achievements" className="ach">
+            <div className="exp-list ach">
+                {achievements.map((item: any, index: number) => (
+                    <ExpandableListItem
+                        key={`${item.title}-${index}`}
+                        icon={icon}
+                        title={item.title}
+                        time={item.time}
+                        imageUrl={item.doc}
+                        isLast={index === achievements.length - 1}
+                    />
+                ))}
+            </div>
+        </ListSection>
+    );
 };
 
 export default Achievements

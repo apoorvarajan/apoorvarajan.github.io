@@ -1,34 +1,23 @@
 import contentJSON from './contents.json';
+import { ListSection, SkillCategory } from '../shared';
 import '../../style/subComponentStyles/skills.css';
 
-import { VscChevronDown, VscFolderOpened, VscChevronRight } from "react-icons/vsc";
-
 const Skills = () => {
-    return <div className="subsec">
-        <div className="head">
-            SKILLS
-            <div className="line" />
-        </div>
-        <div className="techskill-class">
-            {Object.entries(contentJSON['Technical Skills']).map(([key, value], index) => (
-                <div key={`${key}-${index}`}>
-                    <div className="skill-title">
-                        <VscChevronDown />
-                        <VscFolderOpened />&nbsp;
-                        {key + ":"}
-                    </div>
-                    <div className="skill-list">
-                        {value.map((val: string, valIndex: number) => (
-                            <div key={`${val}-${valIndex}`}>
-                                <VscChevronRight />&nbsp;
-                                {val}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div>
+    const technicalSkills = contentJSON['Technical Skills'];
+
+    return (
+        <ListSection title="SKILLS">
+            <div className="techskill-class">
+                {Object.entries(technicalSkills).map(([categoryName, skills], index) => (
+                    <SkillCategory
+                        key={`${categoryName}-${index}`}
+                        categoryName={categoryName}
+                        skills={skills as string[]}
+                    />
+                ))}
+            </div>
+        </ListSection>
+    );
 };
 
 export default Skills

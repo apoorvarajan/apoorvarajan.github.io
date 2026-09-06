@@ -1,46 +1,28 @@
 import { FaLaptopCode } from "react-icons/fa";
-
 import contentJSON from './contents.json';
+import { ExpandableListItem, ListSection } from '../shared';
+import '../../style/subComponentStyles/experience.css';
 
 const OnlineCourses = () => {
-    return <div className="subsec">
-        <div className="head">
-            {"Online Course and Certifications"}
-            <div className="line" />
-        </div>
-        <div className="exp-list ach">
-            {contentJSON.Online_Courses.map((item, key2) => (
-                <div key={`${item.CourseName}-${key2}`}>
-                    <div>
-                        <div className="exp-icon-wrap">
-                            <FaLaptopCode />
-                        </div>
-                        {key2 < contentJSON.Online_Courses.length - 1 && <div className="vertical-line"></div>}
-                    </div>
-                    <div className="ach-div">
-                        <div className="role">
-                            {item.CourseName}
-                            <span style={{ float: 'right', color: 'black', fontWeight: 'normal' }}>{item.Provider}</span>
-                        </div>
-                        <div className="view-button" onClick={() => {
-                            const elem = document.getElementById("course_" + key2);
-                            if (elem) {
-                                if (elem.style.display === 'block') {
-                                    elem.style.display = 'none';
-                                }
-                                else {
-                                    elem.style.display = 'block';
-                                }
-                            }
-                        }}>
-                            VIEW CERTIFICATE
-                        </div>
-                        <img alt="crs-pic" src={item.Certificate} width="500em" id={"course_" + key2} hidden />
-                    </div>
-                </div>
-            ))}
-        </div>
-    </div>
+    const courses = contentJSON.Online_Courses;
+    const icon = <FaLaptopCode />;
+
+    return (
+        <ListSection title="Online Course and Certifications" className="ach">
+            <div className="exp-list ach">
+                {courses.map((item: any, index: number) => (
+                    <ExpandableListItem
+                        key={`${item.CourseName}-${index}`}
+                        icon={icon}
+                        title={item.CourseName}
+                        subtitle={item.Provider}
+                        imageUrl={item.Certificate}
+                        isLast={index === courses.length - 1}
+                    />
+                ))}
+            </div>
+        </ListSection>
+    );
 };
 
 export default OnlineCourses
