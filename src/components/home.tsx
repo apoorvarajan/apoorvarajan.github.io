@@ -20,6 +20,7 @@ const Home = () => {
         { label: 'Education', onClick: () => setPage(4), isActive: page === 4 },
         { label: 'Achievements', onClick: () => setPage(5), isActive: page === 5 },
         { label: 'Online Courses', onClick: () => setPage(6), isActive: page === 6 },
+        { label: 'Recruiter Mode', onClick: () => { window.location.href = '/recruiter'; } },
     ];
 
     const content = [

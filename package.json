@@ -31,6 +31,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
+    "postbuild": "mkdir -p build/recruiter && cp build/index.html build/recruiter/index.html",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
