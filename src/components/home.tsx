@@ -26,7 +26,7 @@ const Home = () => {
     const content = [
         <PrimaryProfile
             name="Apoorva"
-            about="I am a Software Engineer at Esri (Environmental Systems Research Institute) with over 4 years of experience currently based in United States."
+            about="I am a Software Engineer at Esri (Environmental Systems Research Institute) with over 5 years of experience currently based in United States."
             photoSrc="./headshot.png"
             resumePath="../documents/Resume_ApoorvaRajan.pdf"
         />,
