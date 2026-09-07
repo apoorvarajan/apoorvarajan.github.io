@@ -5,13 +5,11 @@ import Projects from './subComponents/projects';
 import Education from './subComponents/education';
 import Achievements from './subComponents/achievements';
 import OnlineCourses from './subComponents/onlineCourses';
-import EmailPopUp from './subComponents/emailPopUp';
 import { TabNavigation, PrimaryProfile } from './shared';
 import '../style/home.css';
 
 const Home = () => {
     const [page, setPage] = useState(0);
-    const [email, setEmail] = useState(false);
 
     const navItems = [
         { label: 'Home', onClick: () => setPage(0), isActive: page === 0 },
@@ -42,13 +40,6 @@ const Home = () => {
         <div className="home-container">
             <TabNavigation items={navItems} />
             {content[page]}
-            {email ? (
-                <EmailPopUp setEmail={setEmail} />
-            ) : (
-                <div className="drop-a-note" onClick={() => setEmail(true)}>
-                    Leave me a message
-                </div>
-            )}
         </div>
     );
 };
