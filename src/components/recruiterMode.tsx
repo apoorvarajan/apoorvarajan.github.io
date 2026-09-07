@@ -22,6 +22,19 @@ const lenses: { key: LensKey; label: string; description: string; keywords: stri
 const getLens = (key: LensKey) => lenses.find((lens) => lens.key === key) || lenses[0];
 const searchable = (value: string | string[]) => (Array.isArray(value) ? value.join(' ') : value).toLowerCase();
 const matchesLens = (value: string | string[], lens: ReturnType<typeof getLens>) => lens.key === 'all' || lens.keywords.some((keyword) => searchable(value).includes(keyword));
+const getExperienceSummary = (description: string[], lens: ReturnType<typeof getLens>) => {
+    const relevantPoints = description.filter((point) => matchesLens(point, lens));
+    if (lens.key === 'all') {
+        return description[0] || 'This role adds professional engineering experience to the overall profile.';
+    }
+    if (!relevantPoints.length) {
+        return `This role adds additional context to the ${lens.label.toLowerCase()} profile through adjacent engineering experience.`;
+    }
+    if (relevantPoints.length === 1) {
+        return relevantPoints[0];
+    }
+    return `${relevantPoints[0]} ${relevantPoints[1]}`;
+};
 
 const RecruiterMode = () => {
     const [activeLens, setActiveLens] = useState<LensKey>('all');
@@ -113,7 +126,7 @@ const RecruiterMode = () => {
                         const experiencePoints = (item.desc.length ? item.desc : ['Professional engineering experience at this stage of the career.']).slice().sort((first, second) => Number(matchesLens(second, lens)) - Number(matchesLens(first, lens)));
                         return <article className={relevant ? 'experience-row is-relevant' : 'experience-row'} key={`${item.role}-${item.time}`}>
                             <div className="experience-meta"><span>{item.time}</span><FiBriefcase aria-hidden="true" /></div>
-                            <div><h3>{item.role}</h3><p className="experience-company">{item.company}</p><ul className="experience-points">{experiencePoints.map((point) => <li className={matchesLens(point, lens) ? 'is-relevant' : ''} key={point}>{point}</li>)}</ul></div>
+                            <div><h3>{item.role}</h3><p className="experience-company">{item.company}</p><p className="experience-summary"><span>{lens.key === 'all' ? 'Career signal' : `${lens.label} contribution`}</span>{getExperienceSummary(item.desc, lens)}</p><ul className="experience-points">{experiencePoints.map((point) => <li className={matchesLens(point, lens) ? 'is-relevant' : ''} key={point}>{point}</li>)}</ul></div>
                         </article>;
                     })}
                 </div>

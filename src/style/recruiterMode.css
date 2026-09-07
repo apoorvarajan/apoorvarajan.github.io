@@ -50,6 +50,8 @@
 .experience-row.is-relevant { opacity: 1; }
 .experience-row h3 { margin: 0 0 .25rem; }
 .experience-company { color: var(--recruiter-blue) !important; font-family: 'Trebuchet MS', sans-serif; font-size: .9rem; font-weight: bold; }
+.experience-summary { margin-top: .9rem !important; padding: .8rem 1rem; border-left: 3px solid var(--recruiter-blue); color: var(--recruiter-ink) !important; background: var(--recruiter-pale); }
+.experience-summary span { display: block; margin-bottom: .3rem; color: var(--recruiter-green); font-family: 'Trebuchet MS', sans-serif; font-size: .68rem; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; }
 .experience-points { display: grid; gap: .55rem; margin: .8rem 0 0; padding-left: 1.2rem; color: #9aa5ae; line-height: 1.45; }
 .experience-points li { padding-left: .25rem; }
 .experience-points li.is-relevant { color: var(--recruiter-ink); font-weight: 600; }
