@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "ci": "npm ci",
     "prestart": "node prepare-start.mjs",
     "start": "node server.mjs"
   },
