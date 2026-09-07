@@ -145,21 +145,25 @@ const getPayload = (event: string, details: EventDetails = {}): AnalyticsPayload
 
 const send = (payload: AnalyticsPayload) => {
     if (!ANALYTICS_ENDPOINT) return;
-    const body = JSON.stringify(payload);
+
     try {
-        const blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
-        if (navigator.sendBeacon?.(ANALYTICS_ENDPOINT, blob)) return;
-    } catch {}
-    try {
-        void fetch(ANALYTICS_ENDPOINT, {
-            body,
-            cache: 'no-store',
-            headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-            keepalive: true,
-            method: 'POST',
+        const params = new URLSearchParams();
+
+        Object.entries(payload).forEach(([key, value]) => {
+            params.set(key, String(value ?? ''));
+        });
+
+        const url = `${ANALYTICS_ENDPOINT}?${params.toString()}`;
+
+        void fetch(url, {
+            method: 'GET',
             mode: 'no-cors',
+            cache: 'no-store',
         }).catch(() => undefined);
-    } catch {}
+
+    } catch {
+        // Analytics must never interfere with the portfolio.
+    }
 };
 
 const getInteractiveElement = (target: EventTarget | null): HTMLElement | null => {
