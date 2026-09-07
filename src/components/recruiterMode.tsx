@@ -110,9 +110,10 @@ const RecruiterMode = () => {
                 <div className="experience-list">
                     {featuredExperience.map((item) => {
                         const relevant = matchesLens(`${item.role} ${item.company} ${item.desc.join(' ')}`, lens);
+                        const experiencePoints = (item.desc.length ? item.desc : ['Professional engineering experience at this stage of the career.']).slice().sort((first, second) => Number(matchesLens(second, lens)) - Number(matchesLens(first, lens)));
                         return <article className={relevant ? 'experience-row is-relevant' : 'experience-row'} key={`${item.role}-${item.time}`}>
                             <div className="experience-meta"><span>{item.time}</span><FiBriefcase aria-hidden="true" /></div>
-                            <div><h3>{item.role}</h3><p className="experience-company">{item.company}</p><p>{item.desc[0] || 'Professional engineering experience at this stage of the career.'}</p></div>
+                            <div><h3>{item.role}</h3><p className="experience-company">{item.company}</p><ul className="experience-points">{experiencePoints.map((point) => <li className={matchesLens(point, lens) ? 'is-relevant' : ''} key={point}>{point}</li>)}</ul></div>
                         </article>;
                     })}
                 </div>

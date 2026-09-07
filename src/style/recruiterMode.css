@@ -44,11 +44,15 @@
 .recruiter-card p, .experience-row p, .closing-section p { margin: 0; color: var(--recruiter-muted); line-height: 1.5; }
 .text-link { display: inline-flex; align-items: center; gap: .3rem; margin-top: auto; padding-top: 1.5rem; color: var(--recruiter-blue) !important; font-family: 'Trebuchet MS', sans-serif; font-size: .8rem; font-weight: bold; text-decoration: none; }
 .experience-section { display: grid; grid-template-columns: .75fr 1.5fr; gap: 4rem; border-top: 1px solid var(--recruiter-line); }
+.experience-section > .section-heading { align-self: start; }
 .experience-list { border-top: 1px solid var(--recruiter-line); }
 .experience-row { display: grid; grid-template-columns: 150px 1fr; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--recruiter-line); opacity: .6; }
 .experience-row.is-relevant { opacity: 1; }
 .experience-row h3 { margin: 0 0 .25rem; }
 .experience-company { color: var(--recruiter-blue) !important; font-family: 'Trebuchet MS', sans-serif; font-size: .9rem; font-weight: bold; }
+.experience-points { display: grid; gap: .55rem; margin: .8rem 0 0; padding-left: 1.2rem; color: #9aa5ae; line-height: 1.45; }
+.experience-points li { padding-left: .25rem; }
+.experience-points li.is-relevant { color: var(--recruiter-ink); font-weight: 600; }
 .experience-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; }
 .skills-section { border-top: 1px solid var(--recruiter-line); }
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
