@@ -14,6 +14,26 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### Production chatbot configuration
+
+The portfolio is hosted on GitHub Pages, while the LLM API runs as a separate backend. Before building or deploying the frontend, set `REACT_APP_API_URL` to the public HTTPS URL of the backend:
+
+```bash
+REACT_APP_API_URL=https://your-backend.example.com npm run deploy
+```
+
+The backend must allow `https://apoorvarajan.github.io` through `FRONTEND_ORIGIN`. GitHub Pages cannot proxy `/api/chat` to a local or private backend.
+
+### Deploy the backend on Render
+
+This repository includes `render.yaml` for the LangGraph API. In Render, create a new Blueprint from this repository and set `OPENAI_API_KEY` in the service environment. Render will use `backend` as the root directory, run `npm ci`, start with `npm start`, and expose `/api/health` for health checks.
+
+After Render gives the service a URL, redeploy the frontend with that URL:
+
+```bash
+REACT_APP_API_URL=https://your-service.onrender.com npm run deploy
+```
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

@@ -23,6 +23,8 @@ const suggestedQuestions = [
     'How does Apoorva fit a frontend role?',
 ];
 
+const apiBaseUrl = (process.env.REACT_APP_API_URL || '').replace(/\/$/, '');
+
 const PortfolioChat = ({ onNavigate }: PortfolioChatProps) => {
     const [messages, setMessages] = useState<ChatMessage[]>([starterMessage]);
     const [question, setQuestion] = useState('');
@@ -61,11 +63,17 @@ const PortfolioChat = ({ onNavigate }: PortfolioChatProps) => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('/api/chat', {
+            const response = await fetch(`${apiBaseUrl}/api/chat`, {
                 body: JSON.stringify({ messages: nextMessages }),
                 headers: { 'Content-Type': 'application/json' },
                 method: 'POST',
             });
+            const responseType = response.headers.get('content-type') || '';
+            if (!responseType.includes('application/json')) {
+                throw new Error(apiBaseUrl
+                    ? 'The chatbot service returned an invalid response. Please try again later.'
+                    : 'The chatbot backend is not connected in production. Configure REACT_APP_API_URL and redeploy.');
+            }
             const data = await response.json();
 
             if (!response.ok) {
