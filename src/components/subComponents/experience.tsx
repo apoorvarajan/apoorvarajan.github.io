@@ -4,22 +4,19 @@ import { TimelineItem, ListSection } from '../shared';
 import '../../style/subComponentStyles/experience.css';
 
 const Experience = () => {
-    const icon = <HiBriefcase className="exp-icon" />;
-    const workExp = contentJSON.work_Exp;
-
     return (
         <ListSection title="WORK EXPERIENCE">
             <div className="exp-list">
-                {workExp.map((item: any, index: number) => (
+                {contentJSON.work_Exp.map((item: any, index: number) => (
                     <TimelineItem
                         key={`${item.role}-${index}`}
-                        icon={icon}
+                        icon={<HiBriefcase className="exp-icon" />}
                         title={item.role}
                         subtitle={item.company}
                         time={item.time}
                         link={item.link}
                         description={item.desc || []}
-                        isLast={index === workExp.length - 1}
+                        isLast={index === contentJSON.work_Exp.length - 1}
                     />
                 ))}
             </div>

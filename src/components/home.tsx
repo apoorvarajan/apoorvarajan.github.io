@@ -23,38 +23,25 @@ const Home = () => {
         { label: 'Online Courses', onClick: () => setPage(6), isActive: page === 6 },
     ];
 
-    const renderContent = () => {
-        switch (page) {
-            case 0:
-                return (
-                    <PrimaryProfile
-                        name="Apoorva"
-                        about="I am a Software Engineer at Esri (Environmental Systems Research Institute) with over 4 years of experience currently based in United States."
-                        photoSrc="./headshot.png"
-                        resumePath="../documents/Resume_ApoorvaRajan.pdf"
-                    />
-                );
-            case 1:
-                return <Skills />;
-            case 2:
-                return <Experience />;
-            case 3:
-                return <Projects />;
-            case 4:
-                return <Education />;
-            case 5:
-                return <Achievements />;
-            case 6:
-                return <OnlineCourses />;
-            default:
-                return null;
-        }
-    };
+    const content = [
+        <PrimaryProfile
+            name="Apoorva"
+            about="I am a Software Engineer at Esri (Environmental Systems Research Institute) with over 4 years of experience currently based in United States."
+            photoSrc="./headshot.png"
+            resumePath="../documents/Resume_ApoorvaRajan.pdf"
+        />,
+        <Skills />,
+        <Experience />,
+        <Projects />,
+        <Education />,
+        <Achievements />,
+        <OnlineCourses />,
+    ];
 
     return (
         <div className="home-container">
             <TabNavigation items={navItems} />
-            {renderContent()}
+            {content[page]}
             {email ? (
                 <EmailPopUp setEmail={setEmail} />
             ) : (

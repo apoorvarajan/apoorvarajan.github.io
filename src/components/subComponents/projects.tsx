@@ -4,20 +4,17 @@ import { TimelineItem, ListSection } from '../shared';
 import '../../style/subComponentStyles/experience.css';
 
 const Projects = () => {
-    const icon = <FaProjectDiagram className="exp-icon" />;
-    const projects = contentJSON.proj;
-
     return (
         <ListSection title="PROJECTS">
             <div className="exp-list">
-                {projects.map((item: any, index: number) => (
+                {contentJSON.proj.map((item: any, index: number) => (
                     <TimelineItem
                         key={`${item.role}-${index}`}
-                        icon={icon}
+                        icon={<FaProjectDiagram className="exp-icon" />}
                         title={item.role}
                         link={item.link}
                         description={item.desc}
-                        isLast={index === projects.length - 1}
+                        isLast={index === contentJSON.proj.length - 1}
                     />
                 ))}
             </div>

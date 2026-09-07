@@ -3,12 +3,10 @@ import { ListSection, SkillCategory } from '../shared';
 import '../../style/subComponentStyles/skills.css';
 
 const Skills = () => {
-    const technicalSkills = contentJSON['Technical Skills'];
-
     return (
         <ListSection title="SKILLS">
             <div className="techskill-class">
-                {Object.entries(technicalSkills).map(([categoryName, skills], index) => (
+                {Object.entries(contentJSON['Technical Skills']).map(([categoryName, skills], index) => (
                     <SkillCategory
                         key={`${categoryName}-${index}`}
                         categoryName={categoryName}
