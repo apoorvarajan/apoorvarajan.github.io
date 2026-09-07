@@ -6,9 +6,15 @@
     <title>Page not found | Apoorva Rajan</title>
   </head>
   <body>
-    <main>
-      <h1>Page not found</h1>
-      <p><a href="/">Return to Apoorva Rajan&apos;s portfolio</a></p>
-    </main>
+    <script>
+      (function () {
+        if (window.location.pathname === '/recruiter' || window.location.pathname === '/recruiter/') {
+          window.location.replace('/?route=/recruiter');
+          return;
+        }
+
+        document.body.innerHTML = '<main><h1>Page not found</h1><p><a href="/">Return to Apoorva Rajan\'s portfolio</a></p></main>';
+      }());
+    </script>
   </body>
 </html>
