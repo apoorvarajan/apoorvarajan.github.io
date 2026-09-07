@@ -261,3 +261,89 @@
   .resume_download:hover .tooltiptext {
     visibility: visible;
   }
+
+  @media (max-width: 700px) {
+    .header {
+      align-items: stretch;
+      gap: 0.25em;
+      height: auto;
+      justify-content: flex-start;
+      overflow-x: auto;
+      padding: 0.55em;
+      position: sticky;
+      scrollbar-width: none;
+      white-space: nowrap;
+    }
+
+    .header::-webkit-scrollbar {
+      display: none;
+    }
+
+    .header > div {
+      flex: 0 0 auto;
+      margin: 0;
+      min-height: 44px;
+      padding: 0 0.75em;
+      display: flex;
+      align-items: center;
+    }
+
+    .forborder {
+      margin-top: 1.5em;
+    }
+
+    .primary-wrap {
+      box-sizing: border-box;
+      padding: 0.75em;
+      width: 100%;
+    }
+
+    .primary-details {
+      align-items: center;
+      display: flex;
+      flex-direction: column-reverse;
+      margin: 0;
+      padding: 0.75em;
+      width: 100%;
+    }
+
+    .name-contact {
+      margin: 1em 0 0;
+      width: 100%;
+    }
+
+    .name {
+      font-size: clamp(2em, 11vw, 3em);
+      line-height: 1.1;
+    }
+
+    .contact {
+      gap: 0.5em;
+      height: auto;
+      padding: 1.25em 0 0.5em;
+      width: 100%;
+    }
+
+    .contact div {
+      margin: 0;
+    }
+
+    .about-me {
+      font-size: 1.05em;
+      margin: 1em 0;
+    }
+
+    .photo {
+      height: 170px;
+      max-width: 100%;
+      width: 170px;
+    }
+
+    .subsec {
+      padding: 2em 1em;
+    }
+
+    .details-wrap {
+      margin: 1.5em 0 5em;
+    }
+  }
