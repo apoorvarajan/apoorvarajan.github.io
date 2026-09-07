@@ -26,7 +26,11 @@ const matchesLens = (value: string | string[], lens: ReturnType<typeof getLens>)
 const RecruiterMode = () => {
     const [activeLens, setActiveLens] = useState<LensKey>('all');
     const lens = getLens(activeLens);
-    const featuredExperience = contentJSON.work_Exp.slice(0, 5);
+    const featuredExperience = contentJSON.work_Exp.slice(0, 5).sort((first, second) => {
+        const firstIsRelevant = matchesLens(`${first.role} ${first.company} ${first.desc.join(' ')}`, lens);
+        const secondIsRelevant = matchesLens(`${second.role} ${second.company} ${second.desc.join(' ')}`, lens);
+        return Number(secondIsRelevant) - Number(firstIsRelevant);
+    });
     const featuredProjects = contentJSON.proj.filter((project) => matchesLens(`${project.role} ${project.desc.join(' ')}`, lens)).slice(0, 4);
     const visibleSkills = Object.entries(contentJSON['Technical Skills']).filter(([category]) => lens.key === 'all' || lens.skillCategories.includes(category));
 
@@ -101,23 +105,6 @@ const RecruiterMode = () => {
                 </div>
             </section>
 
-            <section className="recruiter-section evidence-grid" aria-labelledby="evidence-title">
-                <div className="section-heading">
-                    <p className="recruiter-eyebrow">Evidence first</p>
-                    <h2 id="evidence-title">Selected work</h2>
-                </div>
-                <div className="project-grid">
-                    {featuredProjects.map((project) => (
-                        <article className="recruiter-card project-card" key={project.role}>
-                            <div className="card-topline"><FiMap aria-hidden="true" /><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.role} on GitHub`}><FiArrowUpRight aria-hidden="true" /><span className="sr-only">Open project on GitHub</span></a></div>
-                            <h3>{project.role}</h3>
-                            <p>{project.desc[0]}</p>
-                            <a className="text-link" href={project.link} target="_blank" rel="noreferrer">View project <FiArrowUpRight aria-hidden="true" /></a>
-                        </article>
-                    ))}
-                </div>
-            </section>
-
             <section className="recruiter-section experience-section" aria-labelledby="experience-title">
                 <div className="section-heading"><p className="recruiter-eyebrow">Professional experience</p><h2 id="experience-title">Where the work has landed</h2></div>
                 <div className="experience-list">
@@ -128,6 +115,23 @@ const RecruiterMode = () => {
                             <div><h3>{item.role}</h3><p className="experience-company">{item.company}</p><p>{item.desc[0] || 'Professional engineering experience at this stage of the career.'}</p></div>
                         </article>;
                     })}
+                </div>
+            </section>
+
+            <section className="recruiter-section evidence-grid" aria-labelledby="evidence-title">
+                <div className="section-heading">
+                    <p className="recruiter-eyebrow">Then, the proof</p>
+                    <h2 id="evidence-title">Selected projects</h2>
+                </div>
+                <div className="project-grid">
+                    {featuredProjects.map((project) => (
+                        <article className="recruiter-card project-card" key={project.role}>
+                            <div className="card-topline"><FiMap aria-hidden="true" /><a href={project.link} target="_blank" rel="noreferrer" aria-label={`Open ${project.role} on GitHub`}><FiArrowUpRight aria-hidden="true" /><span className="sr-only">Open project on GitHub</span></a></div>
+                            <h3>{project.role}</h3>
+                            <p>{project.desc[0]}</p>
+                            <a className="text-link" href={project.link} target="_blank" rel="noreferrer">View project <FiArrowUpRight aria-hidden="true" /></a>
+                        </article>
+                    ))}
                 </div>
             </section>
 
