@@ -5,6 +5,7 @@ import Projects from './subComponents/projects';
 import Education from './subComponents/education';
 import Achievements from './subComponents/achievements';
 import OnlineCourses from './subComponents/onlineCourses';
+import PortfolioChat from './portfolioChat';
 import { TabNavigation, PrimaryProfile } from './shared';
 import '../style/home.css';
 
@@ -40,6 +41,7 @@ const Home = () => {
         <div className="home-container">
             <TabNavigation items={navItems} />
             {content[page]}
+            <PortfolioChat onNavigate={setPage} />
         </div>
     );
 };
