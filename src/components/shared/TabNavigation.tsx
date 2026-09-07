@@ -4,6 +4,7 @@ interface NavItem {
   label: string;
   onClick: () => void;
   isActive?: boolean;
+  analyticsDestination?: string;
 }
 
 interface TabNavigationProps {
@@ -20,6 +21,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ items, className = '' }) 
           className="nav-item"
           key={`${item.label}-${idx}`}
           onClick={item.onClick}
+          data-analytics-destination={item.analyticsDestination}
           aria-current={item.isActive ? 'page' : undefined}
           style={{
             cursor: 'pointer',

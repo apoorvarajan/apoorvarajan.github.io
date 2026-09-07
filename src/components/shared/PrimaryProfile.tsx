@@ -36,6 +36,7 @@ const PrimaryProfile: React.FC<PrimaryProfileProps> = ({
               ))}
               <div
                 onClick={() => (window.location.href = resumePath)}
+                data-analytics-destination={resumePath}
                 className="resume_download"
                 style={{ cursor: 'pointer' }}
               >

@@ -22,6 +22,16 @@ The portfolio is hosted on GitHub Pages, while the LLM API runs as a separate ba
 REACT_APP_API_URL=https://your-backend.example.com npm run deploy
 ```
 
+### Portfolio analytics configuration
+
+The frontend can send privacy-conscious page-view and click events to the Google Apps Script web app. Copy `.env.example` to `.env.local` for local development, then set the endpoint URL supplied by the Apps Script deployment:
+
+```bash
+REACT_APP_ANALYTICS_ENDPOINT=https://script.google.com/macros/s/your-deployment-id/exec
+```
+
+For a GitHub Pages deployment, set the same `REACT_APP_ANALYTICS_ENDPOINT` environment variable in the build/deploy environment. The frontend only sends anonymous identifiers, page and link metadata, UTM values, screen dimensions, referrer, and user agent; it never sends form field values.
+
 The backend must allow `https://apoorvarajan.github.io` through `FRONTEND_ORIGIN`. GitHub Pages cannot proxy `/api/chat` to a local or private backend.
 
 ### Deploy the backend on Render
