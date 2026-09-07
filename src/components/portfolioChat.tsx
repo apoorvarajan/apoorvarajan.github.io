@@ -23,7 +23,7 @@ const suggestedQuestions = [
     'How does Apoorva fit a frontend role?',
 ];
 
-const apiBaseUrl = (process.env.REACT_APP_API_URL || '').replace(/\/$/, '');
+const apiBaseUrl = (process.env.REACT_APP_API_URL || 'https://apoorvarajan-github-io.onrender.com').replace(/\/$/, '');
 
 const PortfolioChat = ({ onNavigate }: PortfolioChatProps) => {
     const [messages, setMessages] = useState<ChatMessage[]>([starterMessage]);
