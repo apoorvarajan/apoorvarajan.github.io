@@ -84,9 +84,16 @@
     border-bottom-right-radius: 0.3em;
     z-index: 10001;
 }
-.header>div{
+.header>div,
+.header>.nav-item{
     margin: auto;
     cursor: pointer;
+}
+.nav-item {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font: inherit;
 }
 
 /* Home Section */
@@ -279,7 +286,8 @@
       display: none;
     }
 
-    .header > div {
+    .header > div,
+    .header > .nav-item {
       flex: 0 0 auto;
       margin: 0;
       min-height: 44px;

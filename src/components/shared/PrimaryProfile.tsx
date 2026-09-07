@@ -26,7 +26,7 @@ const PrimaryProfile: React.FC<PrimaryProfileProps> = ({
       <div className="forborder">
         <div className="primary-details">
           <div className="name-contact">
-            <div className="name">Hey There! My name is {name}</div>
+            <h1 className="name">Hey there, I&apos;m {name} Rajan</h1>
             <div className="contact">
               {socialLinks.map((link, idx) => (
                 <div key={`${link.label}-${idx}`} className="resume_download">
@@ -43,7 +43,7 @@ const PrimaryProfile: React.FC<PrimaryProfileProps> = ({
                 <span className="tooltiptext">Resume</span>
               </div>
             </div>
-            <div className="about-me">{about}</div>
+            <p className="about-me">{about}</p>
           </div>
           <div className="photo-wrap">
             <img alt="headshot" className="photo" height="250em" src={photoSrc} />

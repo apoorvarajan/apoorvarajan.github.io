@@ -8,13 +8,13 @@ interface ListSectionProps {
 
 const ListSection: React.FC<ListSectionProps> = ({ title, children, className = '' }) => {
   return (
-    <div className={`subsec ${className}`}>
-      <div className="head">
+    <section className={`subsec ${className}`}>
+      <h2 className="head">
         {title}
-        <div className="line" />
-      </div>
+        <span className="line" />
+      </h2>
       {children}
-    </div>
+    </section>
   );
 };
 

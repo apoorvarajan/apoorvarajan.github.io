@@ -25,7 +25,7 @@ const Home = () => {
     const content = [
         <PrimaryProfile
             name="Apoorva"
-            about="I am a Software Engineer at Esri (Environmental Systems Research Institute) with over 5 years of experience currently based in United States."
+            about="I am a Software Engineer at Esri with over 5 years of experience building TypeScript web applications, Microsoft Fabric mapping and data exploration experiences, and AI-powered agent workflows for geospatial software."
             photoSrc="./headshot.png"
             resumePath="../documents/Resume_ApoorvaRajan.pdf"
         />,
@@ -38,11 +38,11 @@ const Home = () => {
     ];
 
     return (
-        <div className="home-container">
+        <main className="home-container">
             <TabNavigation items={navItems} />
             {content[page]}
             <PortfolioChat onNavigate={setPage} />
-        </div>
+        </main>
     );
 };
 
